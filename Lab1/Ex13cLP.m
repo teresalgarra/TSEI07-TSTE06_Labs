@@ -1,6 +1,6 @@
 function h=Ex13cLP()
 %h=Ex13cLP() gives the impulse response h of the 50th-order
-%Type I filter in Exercise 13c using linear programming
+%Type I filter in Exercise 1.3c using linear programming
 
 wcT=0.3*pi;
 wsT=0.4*pi;
