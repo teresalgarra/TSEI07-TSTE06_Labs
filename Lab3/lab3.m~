@@ -638,8 +638,8 @@ load('Inputs.mat');                             % Importing the values
 N = length(m0);                                 % Filter Order
 dly = N/2;                                      % Delay Samples
 
-s0_dly = s0(dly+1:end);                         % Ignoring the delay
-s1_dly = s1(dly+1:end);                         % Ignoring the delay
+s0_dly = s0(dly:end);                           % Ignoring the delay
+s1_dly = s1(dly:end);                           % Ignoring the delay
 
 s0_2 = upsample(2*s0_dly, 2);                   % Upsampling s0
 s1_2 = upsample(2*s1_dly, 2);                   % Upsampling s1
@@ -667,8 +667,8 @@ load('Inputs.mat');                             % Importing the values
 N = length(m0);                                 % Filter Order
 dly = N/2;                                      % Delay Samples
 
-s0_dly = s0(dly+1:end);                         % Ignoring the delay
-s1_dly = s1(dly+1:end);                         % Ignoring the delay
+s0_dly = s0(dly:end);                           % Ignoring the delay
+s1_dly = s1(dly:end);                           % Ignoring the delay
 
 s0_2 = upsample(2*s0_dly, 2);                   % Upsampling s0
 s1_2 = upsample(2*s1_dly, 2);                   % Upsampling s1
@@ -693,8 +693,8 @@ load('Filters1.mat');                           % Importing the values
 N = length(h0);                                 % Filter Order
 dly = N/2;                                      % Delay Samples
 
-f0_dly = f0(dly+1:end);                         % Ignoring the delay
-f1_dly = f1(dly+1:end);                         % Ignoring the delay
+f0_dly = f0(dly:end);                           % Ignoring the delay
+f1_dly = f1(dly:end);                           % Ignoring the delay
 
 f0_2 = upsample(2*f0_dly, 2);                   % Upsampling s0
 f1_2 = upsample(2*f1_dly, 2);                   % Upsampling s1
@@ -722,8 +722,8 @@ load('Filters2.mat');                           % Importing the values
 N = length(h0);                                 % Filter Order
 dly = N/2;                                      % Delay Samples
 
-f0_dly = f0(dly+1:end);                         % Ignoring the delay
-f1_dly = f1(dly+1:end);                         % Ignoring the delay
+f0_dly = f0(dly:end);                           % Ignoring the delay
+f1_dly = f1(dly:end);                           % Ignoring the delay
 
 f0_2 = upsample(2*f0_dly, 2);                   % Upsampling s0
 f1_2 = upsample(2*f1_dly, 2);                   % Upsampling s1
@@ -751,8 +751,8 @@ load('Filters3.mat');                           % Importing the values
 N = length(h0);                                 % Filter Order
 dly = N/2;                                      % Delay Samples
 
-f0_dly = f0(dly+1:end);                         % Ignoring the delay
-f1_dly = f1(dly+1:end);                         % Ignoring the delay
+f0_dly = f0(dly+1:end);                           % Ignoring the delay
+f1_dly = f1(dly+1:end);                           % Ignoring the delay
 
 f0_2 = upsample(2*f0_dly, 2);                   % Upsampling s0
 f1_2 = upsample(2*f1_dly, 2);                   % Upsampling s1
@@ -795,6 +795,4 @@ g1 = downsample(x1, 2);                         % Downsampling x1
 m0r = Sym2Msg(g0, 16);                          % Output as text message
 m1r = Sym2Msg(g1, 16);                          % Output as text message
 
-SNR_m0 = 10*log(sum((s0).^2)/sum((m0r-s0).^2)); %SNR of m0 and m0r
-SNR_m1 = 10*log(sum((s1).^2)/sum((m1r-s1).^2)); %SNR of m1 and m1r
-
+SNR_m0 = 10*log(sum((s0).^2)/sum((g0-s0).^2));
