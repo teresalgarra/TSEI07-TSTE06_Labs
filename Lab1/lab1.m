@@ -68,9 +68,9 @@ title('Filter');                                % Title
 % however, for most practical cases close to the minimum order which means
 % that only a few function calls need to be done.
 
-% By hand, our minimum filter degree is 53.333 = 54, so:
+% By hand, our minimum filter degree is 52, so:
 
-N1 = 54;                                        % Hand filter order result
+N1 = 52;                                        % Hand filter order result
 h1 = firpm(N1, F, D, W);                        % Required Function
 
 figure;                                         % Ploting
@@ -124,6 +124,8 @@ fs4 = 2*pi;                                     % Sampling frequency
 [N4, F4, D4, W4] = firpmord(wT4, b4, d4, fs4);  % Required Function
 
 [N1, N2, N3, N4]                                % Filter orders
+
+% This is underestimated, we have to use more.
 
 %% QUESTION 1.2.C.1 %%
 
@@ -209,11 +211,11 @@ title('Filter 4 (Poles and Zeros)');            % Title
 
 h_LP = Ex13cLP;                                 % LP Given Function
 m_LP = 20*log10(abs(h_LP));                     % Magnitude Response
-E_LP = sum(abs(m_LP(0.4*pi:end)));              % Energy in the SB
+E_LP = 20*log10(sum(abs(m_LP(0.4*pi:end))));    % Energy in the SB
 
 h_QP = Ex13cQP;                                 % QP Given Function
 m_QP = 20*log10(abs(h_QP));                     % Magnitude Response
-E_QP = sum(abs(m_QP(0.4*pi:end)));              % Energy in the SB
+E_QP = 20*log10(sum(abs(m_QP(0.4*pi:end))));    % Energy in the SB
 
 figure;                                         % Ploting
 freqz(h_LP);                                    % Frequency Response
